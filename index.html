@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Todo List" />
+    <meta name="keywords" content="todo, list, todo list, todolist" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>TodoList</title>
+  </head>
+  <body>
+    <header class="header"><h1 class="header__heading">todos</h1></header>
+
+    <main class="todo">
+      <label class="todo__label">
+        <input
+          class="todo__input"
+          type="text"
+          placeholder="What needs to be done?"
+          autofocus
+        />
+        <button class="todo__all-toggle">&rsaquo;</button>
+      </label>
+      <ul class="todo-list">
+        <li class="todo-list__item completed">
+          <div class="todo-list__view">
+            <input class="todo-list__toggle-btn" type="checkbox">
+            <label class="todo-list__label">todo1</label>
+            <button class="todo-list__destroy-btn">&times;</button>
+          </div>
+        </li>
+      </ul>
+    </main>
+
+    <footer class="footer">
+      <p>Double-click to edit todo</p>
+      <p>Created by Dmitry Overkin</p>
+      <p>
+        GitHub
+        <a
+          class="footer__git-link"
+          href="https://github.com/DmitryOverkin?tab=repositories"
+          >Dmitry GitHub</a
+        >
+      </p>
+    </footer>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

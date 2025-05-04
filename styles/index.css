@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 70px 0;
+  background-color: #616a6b;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* header styles */
+
+.header {
+  margin: 0 auto 30px;
+  text-align: center;
+  color: #fdfefe;
+}
+
+.header__heading {
+  font-size: 80px;
+}
+
+/* main styles */
+
+.todo {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =====label styles===== */
+
+.todo__label {
+  position: relative;
+  max-width: 550px;
+  width: 100%;
+  height: 65px;
+}
+
+/* ======togggle button====== */
+
+.todo__all-toggle {
+  position: absolute;
+  left: 1%;
+  top: 50%;
+  width: 10%;
+  height: 100%;
+  transform: translateY(-50%) rotate(90deg);
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* ======input styles======= */
+
+.todo__input {
+  width: 100%;
+  height: 65px;
+  padding: 16px 16px 16px 60px;
+  border-style: none;
+  outline: none;
+  font-size: 25px;
+  font-style: italic;
+}
+
+/* ========todo-list(ul) styles ========== */
+
+.todo-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.todo-list__item {
+  max-width: 550px;
+  width: 100%;
+  height: 65px;
+}
+
+.todo-list__view {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 16px 16px 16px 60px;
+  display: flex;
+  align-items: center;
+  background-color: #fdfefe;
+  border-top: 1px solid #616a6b;
+}
+
+.todo-list__toggle-btn {
+  position: absolute;
+  left: 1%;
+  width: 10%;
+  height: 30px;
+}
+
+.todo-list__label {
+  font-size: 30px;
+}
+
+.todo-list__destroy-btn {
+  margin-left: auto;
+  margin-right: 0;
+  padding: 5px 10px;
+  display: none;
+  border: 1px solid transparent;
+  background-color: transparent;
+  font-size: 25px;
+}
+
+.todo-list__view:hover .todo-list__destroy-btn {
+  display: block;
+}
+
+.todo-list__destroy-btn:hover {
+  cursor: pointer;
+  color: #616a6b;
+}
+
+.todo-list__destroy-btn:active {
+  border: 1px solid #616a6b;
+}
+
+/* footer styles */
+
+.footer {
+  text-align: center;
+  color: #fdfefe;
+}
+
+.footer__git-link {
+  color: #fdfefe;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__git-link:hover {
+  color: #85929e;
+}
