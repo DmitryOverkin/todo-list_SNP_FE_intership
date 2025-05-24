@@ -102,10 +102,22 @@ body {
   left: 1%;
   width: 10%;
   height: 30px;
+  opacity: 0;
+}
+
+.todo-list__label::before{
+  position: absolute;
+  left: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  content: '';
 }
 
 .todo-list__label {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .todo-list__destroy-btn {
