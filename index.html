@@ -27,27 +27,14 @@
         />
         <button class="todo__all-toggle">&rsaquo;</button>
       </label>
-      <ul class="todo-list">
-        <li class="todo-list__item">
-          <div class="todo-list__view">
-            <input class="todo-list__toggle-btn" type="checkbox" />
-            <label class="todo-list__label">todo1</label>
-            <button class="todo-list__destroy-btn">&times;</button>
-          </div>
-        </li>
-        <li class="todo-list__item completed">
-          <div class="todo-list__view">
-            <input class="todo-list__toggle-btn" type="checkbox" />
-            <label class="todo-list__label">todo1</label>
-            <button class="todo-list__destroy-btn">&times;</button>
-          </div>
-        </li>
-      </ul>
+      <ul class="todo-list"></ul>
       <div class="todo-list__actions">
         <div class="todo-list__actions-layer"></div>
         <div class="todo-list__actions-layer"></div>
         <div class="todo-list__actions-layer"></div>
-        <p class="todo-list__actions-item-left">0 items left</p>
+        <p class="todo-list__actions-item-left">
+          <span class="item-left-count"></span> items left
+        </p>
         <div class="todo-list__actions-btns">
           <button class="todo-list__actions-btn-all active">All</button>
           <button class="todo-list__actions-btn-active">Active</button>
