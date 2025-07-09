@@ -1,286 +1,128 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
 }
 
 body {
-  padding: 70px 0;
+  padding: 40px 20px;
   background-color: #616a6b;
-}
-
-/* header styles */
-
-.header {
-  margin: 0 auto 30px;
-  text-align: center;
-  color: #fdfefe;
+  color: #fff;
 }
 
 .header__heading {
-  font-size: 80px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 70px;
 }
 
-/* main styles */
-
 .todo {
-  margin-bottom: 50px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* =====label styles===== */
-
-.todo__label {
-  position: relative;
-  max-width: 550px;
-  width: 100%;
-  height: 65px;
+.todo__box {
+  width: 540px;
+  min-width: 360px;
+  margin-bottom: 30px;
 }
 
-/* ======togggle button====== */
+.todo__row {
+  position: relative;
+}
 
-.todo__all-toggle {
+.todo__toggle-all {
   position: absolute;
-  left: 1%;
-  top: 50%;
-  width: 10%;
-  height: 100%;
-  transform: translateY(-50%) rotate(90deg);
-  background-color: transparent;
-  border: none;
+  top: 7%;
+  left: 3%;
+  transform: rotate(90deg);
+  color: #555;
   font-size: 30px;
-  color: #616a6b;
   cursor: pointer;
 }
-
-.todo__all-toggle.toggle-all{
-  color: #000;
-}
-
-/* ======input styles======= */
 
 .todo__input {
   width: 100%;
-  height: 65px;
-  padding: 16px 16px 16px 60px;
-  border-style: none;
-  outline: none;
-  font-size: 25px;
-  font-style: italic;
+  padding: 12px 15px 12px 50px;
+  border: none;
+  outline-color: #616a8c;
+  font-size: 16px;
 }
 
-/* ========todo-list(ul) styles ========== */
-
-.todo-list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.todo__list {
+  color: #000;
   list-style-type: none;
 }
 
-.todo-list__item {
-  max-width: 550px;
-  width: 100%;
-  height: 65px;
-}
-
-.todo-list__view {
+.todo__item {
   position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 16px 16px 16px 60px;
-  display: flex;
-  align-items: center;
-  background-color: #fdfefe;
+  height: 50px;
+  background-color: #fff;
   border-top: 1px solid #616a6b;
-}
-
-.todo-list__toggle-btn {
-  position: absolute;
-  left: 4%;
-  z-index: 10;
-  width: 30px;
-  height: 30px;
-  opacity: 0;
+  padding: 15px 50px;
   cursor: pointer;
 }
 
-.todo-list__label {
-  font-size: 25px;
-}
-
-.todo-list__label::before {
+.todo__item::before {
   position: absolute;
-  left: 4%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  background-image: url(../images/checkbox-uncheked.png);
-  background-position: center;
-  background-repeat: no-repeat;
+  top: 32%;
+  left: 2%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #616a6b;
   content: "";
 }
 
-.todo-list__item.completed
-  .todo-list__toggle-btn:checked
-  + .todo-list__label::before {
-  background-image: url(../images/checkbox-cheked.png);
+.todo__item.cheked::after {
+  position: absolute;
+  top: 25%;
+  left: 2.5%;
+  content: "✔";
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
 }
 
-.todo-list__item.completed .todo-list__toggle-btn:checked + .todo-list__label {
+.todo__item.cheked {
   text-decoration: line-through;
-  color: #616a6b;
+  color: #555;
 }
 
-.todo-list__destroy-btn {
-  margin-left: auto;
-  margin-right: 0;
-  padding: 5px 10px;
-  display: none;
-  border: 1px solid transparent;
-  background-color: transparent;
-  font-size: 25px;
-}
-
-.todo-list__view:hover .todo-list__destroy-btn {
-  display: block;
-}
-
-.todo-list__destroy-btn:hover {
-  cursor: pointer;
-  color: #616a6b;
-}
-
-.todo-list__destroy-btn:active {
-  border: 1px solid #616a6b;
-}
-
-/* todo-list__actions */
-
-.todo-list__actions {
-  position: relative;
-  width: 100%;
-  max-width: 550px;
-  height: 65px;
-  padding: 16px;
-  border-top: 1px solid #616a6b;
-  background-color: #fdfefe;
+.todo__actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #616a6b;
+  color: #000;
+  font-size: 12px;
+  padding: 12px 15px;
 }
 
-.todo-list__actions-layer:first-child {
-  position: absolute;
-  top: 10%;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid #616a6b;
-  background-color: #fdfefe;
+.todo__btns{
+    display: flex;
+    gap: 15px;
 }
 
-.todo-list__actions-layer:nth-child(2) {
-  position: absolute;
-  top: 15%;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid #616a6b;
-  background-color: #fdfefe;
-}
-
-.todo-list__actions-layer:nth-child(3) {
-  position: absolute;
-  top: 20%;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid #616a6b;
-  background-color: #fdfefe;
-}
-
-.todo-list__actions-item-left {
-  position: relative;
-  z-index: 3;
-}
-
-.todo-list__actions-btns {
-  position: relative;
-  z-index: 3;
-}
-
-.todo-list__actions-clear-completed {
-  position: relative;
-  z-index: 3;
-}
-
-.todo-list__actions-btns {
-  display: flex;
-  gap: 5px;
-}
-
-.todo-list__actions-btns button {
+.todo__btn--all,
+.todo__btn--active,
+.todo__btn--completed,
+.todo__btn--clear {
   background-color: transparent;
-  padding: 3px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.todo-list__actions-btns button:hover {
-  border: 1px solid #616a6b;
-}
-
-.todo-list__actions-btn-all.active {
-  border: 1px solid #616a6b;
-}
-
-.todo-list__actions-btn-active.active {
-  border: 1px solid #616a6b;
-}
-
-.todo-list__actions-btn-completed.active {
-  border: 1px solid #616a6b;
-}
-
-.todo-list__actions-clear-completed{
-  background-color: transparent;
-  padding: 3px;
   border: none;
-  font-size: 16px;
+  outline: none;
   cursor: pointer;
 }
 
-.todo-list__actions-clear-completed:hover{
+.todo__btn--all:hover,
+.todo__btn--active:hover,
+.todo__btn--completed:hover,
+.todo__btn--clear:hover {
   text-decoration: underline;
 }
 
-/* footer styles */
-
 .footer {
   text-align: center;
-  color: #fdfefe;
-}
-
-.footer__git-link {
-  color: #fdfefe;
-  transition: color 0.3s ease-in-out;
-}
-
-.footer__git-link:hover {
-  color: #85929e;
 }

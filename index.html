@@ -18,31 +18,30 @@
     <header class="header"><h1 class="header__heading">todos</h1></header>
 
     <main class="todo">
-      <label class="todo__label">
-        <input
-          class="todo__input"
-          type="text"
-          placeholder="What needs to be done?"
-          autofocus
-        />
-        <button class="todo__all-toggle">&rsaquo;</button>
-      </label>
-      <ul class="todo-list"></ul>
-      <div class="todo-list__actions">
-        <div class="todo-list__actions-layer"></div>
-        <div class="todo-list__actions-layer"></div>
-        <div class="todo-list__actions-layer"></div>
-        <p class="todo-list__actions-item-left">
-          <span class="item-left-count"></span> items left
-        </p>
-        <div class="todo-list__actions-btns">
-          <button class="todo-list__actions-btn-all active">All</button>
-          <button class="todo-list__actions-btn-active">Active</button>
-          <button class="todo-list__actions-btn-completed">Completed</button>
+      <div class="todo__box">
+        <div class="todo__row">
+          <label class="todo__toggle-all" for="todo__input">&rsaquo;</label>
+          <input
+            name="todo__input"
+            class="todo__input"
+            type="text"
+            placeholder="What needs to be done?"
+          />
         </div>
-        <button class="todo-list__actions-clear-completed">
-          Clear completed
-        </button>
+        <ul class="todo__list">
+          <li class="todo__item cheked">Задача</li>
+          <li class="todo__item">Задача</li>
+          <li class="todo__item">Задача</li>
+        </ul>
+        <div class="todo__actions">
+          <div class="todo__count"><span>1</span> item left</div>
+          <div class="todo__btns">
+            <button class="todo__btn--all">All</button>
+            <button class="todo__btn--active">Active</button>
+            <button class="todo__btn--completed">Completed</button>
+          </div>
+          <button class="todo__btn--clear">Clear completed</button>
+        </div>
       </div>
     </main>
 
