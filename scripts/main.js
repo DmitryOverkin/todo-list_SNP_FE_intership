@@ -12,7 +12,7 @@ todoInput.addEventListener("keydown", (e) => {
   }
 });
 
-function saveTodos(arr) {FА
+function saveTodos(arr) {
   let jsonTodos = JSON.stringify(arr);
   localStorage.setItem("todos", jsonTodos);
 }
