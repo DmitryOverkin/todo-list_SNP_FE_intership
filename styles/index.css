@@ -8,6 +8,7 @@ body {
   padding: 40px 20px;
   background-color: #616a6b;
   color: #fff;
+  font-family: "Rubik", "sans-serif";
 }
 
 .header__heading {
@@ -75,7 +76,7 @@ body {
   content: "";
 }
 
-.todo__item.cheked::after {
+.todo__item.checked::after {
   position: absolute;
   top: 25%;
   left: 2.5%;
@@ -85,7 +86,7 @@ body {
   height: 10px;
 }
 
-.todo__item.cheked {
+.todo__item.checked {
   text-decoration: line-through;
   color: #555;
 }
