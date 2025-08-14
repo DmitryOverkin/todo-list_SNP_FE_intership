@@ -1,5 +1,6 @@
 const todoInput = document.querySelector(".todo__input");
 const todoList = document.querySelector(".todo__list");
+const todoCounter = document.querySelector(".todo__counter");
 
 let todos = loadTodos() ? loadTodos() : [];
 
@@ -42,13 +43,25 @@ function renderTodos() {
       renderTodos();
     });
 
+    let deleteBtn = document.createElement("span");
+    deleteBtn.textContent = "\u00d7";
+    deleteBtn.className = "delete__item";
+    deleteBtn.addEventListener("click", () => {
+      todos.splice(index, 1);
+      saveTodos(todos);
+      renderTodos();
+    });
+
+    todoItem.appendChild(deleteBtn);
     todoList.appendChild(todoItem);
   });
+
+  todoCount();
 }
 
-function checkTodo() {
-  todoItems.forEach((item, index) => {});
+function todoCount() {
+  let count = todos.filter((todo) => todo.checked !== true).length;
+  todoCounter.textContent = count;
 }
 
-loadTodos();
 renderTodos();

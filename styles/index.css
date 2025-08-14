@@ -91,6 +91,25 @@ body {
   color: #555;
 }
 
+.delete__item {
+  position: absolute;
+  top: 12%;
+  right: 5%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #555;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete__item:hover {
+  background-color: #f1f1f1;
+}
+
 .todo__actions {
   display: flex;
   justify-content: space-between;
@@ -102,9 +121,9 @@ body {
   padding: 12px 15px;
 }
 
-.todo__btns{
-    display: flex;
-    gap: 15px;
+.todo__btns {
+  display: flex;
+  gap: 15px;
 }
 
 .todo__btn--all,
