@@ -7,6 +7,7 @@ let todos = loadTodos() ? loadTodos() : [];
 
 todoInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
+    if (e.target.value.trim() == "") return;
     todos.push({ text: e.target.value, checked: false });
     saveTodos(todos);
     renderTodos();
@@ -15,7 +16,6 @@ todoInput.addEventListener("keydown", (e) => {
 });
 
 function saveTodos(arr) {
-  console.log("Оно рабоатет!")
   let jsonTodos = JSON.stringify(arr);
   localStorage.setItem("todos", jsonTodos);
 }
