@@ -1,0 +1,153 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 40px 20px;
+  background-color: #616a6b;
+  color: #fff;
+  font-family: "Rubik", "sans-serif";
+}
+
+.header__heading {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 70px;
+}
+
+.todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo__box {
+  width: 540px;
+  min-width: 360px;
+  margin-bottom: 30px;
+}
+
+.todo__row {
+  position: relative;
+}
+
+.todo__toggle-all {
+  position: absolute;
+  top: 7%;
+  left: 3%;
+  display: none;
+  transform: rotate(90deg);
+  color: #555;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.todo__input {
+  width: 100%;
+  padding: 12px 15px 12px 50px;
+  border: none;
+  outline-color: #616a8c;
+  font-size: 16px;
+}
+
+.todo__list {
+  color: #000;
+  list-style-type: none;
+}
+
+.todo__item {
+  position: relative;
+  height: 50px;
+  background-color: #fff;
+  border-top: 1px solid #616a6b;
+  padding: 15px 50px;
+  cursor: pointer;
+}
+
+.todo__item::before {
+  position: absolute;
+  top: 32%;
+  left: 2%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #616a6b;
+  content: "";
+}
+
+.todo__item.checked::after {
+  position: absolute;
+  top: 25%;
+  left: 2.5%;
+  content: "✔";
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.todo__item.checked {
+  text-decoration: line-through;
+  color: #555;
+}
+
+.delete__item {
+  position: absolute;
+  top: 12%;
+  right: 5%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #555;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete__item:hover {
+  background-color: #f1f1f1;
+}
+
+.todo__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #616a6b;
+  color: #000;
+  font-size: 12px;
+  padding: 12px 15px;
+}
+
+.todo__btns {
+  display: flex;
+  gap: 15px;
+}
+
+.todo__btn--all,
+.todo__btn--active,
+.todo__btn--completed,
+.todo__btn--clear {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.todo__btn--all:hover,
+.todo__btn--active:hover,
+.todo__btn--completed:hover,
+.todo__btn--clear:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+}
+
+.visible{
+  display: block;
+}

@@ -15,6 +15,7 @@ todoInput.addEventListener("keydown", (e) => {
 });
 
 function saveTodos(arr) {
+  console.log("Оно рабоатет!")
   let jsonTodos = JSON.stringify(arr);
   localStorage.setItem("todos", jsonTodos);
 }
@@ -39,7 +40,7 @@ function renderTodos() {
     todoItem.textContent = todo.text;
 
     todoItem.addEventListener("click", () => {
-      todos[index].checked = !todos[index].checked;
+      todo.checked = !todo.checked;
       saveTodos(todos);
       renderTodos();
     });
