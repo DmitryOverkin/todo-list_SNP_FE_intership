@@ -37,6 +37,7 @@ body {
   position: absolute;
   top: 7%;
   left: 3%;
+  display: none;
   transform: rotate(90deg);
   color: #555;
   font-size: 30px;
@@ -145,4 +146,8 @@ body {
 
 .footer {
   text-align: center;
+}
+
+.visible{
+  display: block;
 }

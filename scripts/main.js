@@ -1,6 +1,7 @@
 const todoInput = document.querySelector(".todo__input");
 const todoList = document.querySelector(".todo__list");
 const todoCounter = document.querySelector(".todo__counter");
+const toggleAllBtn = document.querySelector(".todo__toggle-all");
 
 let todos = loadTodos() ? loadTodos() : [];
 
@@ -56,6 +57,12 @@ function renderTodos() {
     todoList.appendChild(todoItem);
   });
 
+  if (todos.length >= 1) {
+    toggleAllBtn.classList.add("visible");
+  } else {
+    toggleAllBtn.classList.remove("visible");
+  }
+
   todoCount();
 }
 
@@ -63,5 +70,19 @@ function todoCount() {
   let count = todos.filter((todo) => todo.checked !== true).length;
   todoCounter.textContent = count;
 }
+
+function setAllCompleted(state) {
+  todos.forEach((todo) => {
+    todo.checked = state;
+  });
+}
+
+toggleAllBtn.addEventListener("click", function () {
+  const isAllCompleted = todos.every((todo) => todo.checked === true);
+
+  setAllCompleted(!isAllCompleted);
+  saveTodos(todos);
+  renderTodos();
+});
 
 renderTodos();
