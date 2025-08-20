@@ -1,3 +1,5 @@
+import "../styles/index.scss";
+
 const todoInput = document.querySelector(".todo__input");
 const todoList = document.querySelector(".todo__list");
 const todoCounter = document.querySelector(".todo__counter");
@@ -139,11 +141,12 @@ function renderTodos() {
   }
 
   showClearBtn();
+
   todoCount();
 }
 
 function showClearBtn() {
-  isShow = todos.some((todo) => todo.checked === true);
+  const isShow = todos.some((todo) => todo.checked === true);
   if (isShow) {
     showElem(clearBtn, "block");
   } else {
