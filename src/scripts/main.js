@@ -97,7 +97,7 @@ function renderTodos() {
     let checkBtn = document.createElement("span");
     checkBtn.className = "check__btn";
 
-    if(todo.checked){
+    if (todo.checked) {
       checkBtn.classList.add("checked");
       checkBtn.textContent = "✔";
     }
@@ -106,7 +106,24 @@ function renderTodos() {
       todo.checked = !todo.checked;
       saveTodos(todos);
       renderTodos();
-    })
+    });
+
+    todoItem.addEventListener("dblclick", (e) => {
+      const input = document.createElement("input");
+      input.className = "edit__todo";
+
+      input.value = todo.text;
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          todo.text = e.target.value;
+          saveTodos(todos);
+          renderTodos();
+        }
+      });
+
+      todoItem.appendChild(input);
+    });
 
     todoItem.appendChild(checkBtn);
     todoItem.appendChild(deleteBtn);

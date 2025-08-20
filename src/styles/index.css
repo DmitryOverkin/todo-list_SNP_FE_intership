@@ -65,29 +65,7 @@ body {
   background-color: #fff;
   border-top: 1px solid #616a6b;
   padding: 15px 50px;
-  /* cursor: pointer; */
 }
-
-/* .todo__item::before {
-  position: absolute;
-  top: 32%;
-  left: 2%;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 1px solid #616a6b;
-  content: "";
-} */
-
-/* .todo__item.checked::after {
-  position: absolute;
-  top: 25%;
-  left: 2.5%;
-  content: "✔";
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-} */
 
 .todo__item.checked {
   text-decoration: line-through;
@@ -130,6 +108,17 @@ body {
 
 .delete__item:hover {
   background-color: #f1f1f1;
+}
+
+.edit__todo {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-left: 50px;
+  height: 100%;
+  border: 1px solid #616a8c;
+  outline-color: #616a8c;
+  font-size: 16px;
 }
 
 .todo__actions {
