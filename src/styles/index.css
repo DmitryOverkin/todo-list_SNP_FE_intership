@@ -59,14 +59,16 @@ body {
 
 .todo__item {
   position: relative;
+  display: flex;
+  align-items: center;
   height: 50px;
   background-color: #fff;
   border-top: 1px solid #616a6b;
   padding: 15px 50px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
-.todo__item::before {
+/* .todo__item::before {
   position: absolute;
   top: 32%;
   left: 2%;
@@ -75,9 +77,9 @@ body {
   border-radius: 50%;
   border: 1px solid #616a6b;
   content: "";
-}
+} */
 
-.todo__item.checked::after {
+/* .todo__item.checked::after {
   position: absolute;
   top: 25%;
   left: 2.5%;
@@ -85,11 +87,29 @@ body {
   border-radius: 50%;
   width: 10px;
   height: 10px;
-}
+} */
 
 .todo__item.checked {
   text-decoration: line-through;
   color: #555;
+}
+
+.check__btn {
+  position: absolute;
+  left: 2%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #616a6b;
+  content: "";
+  cursor: pointer;
+}
+
+.check__btn.checked {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .delete__item {
@@ -104,6 +124,7 @@ body {
   border-radius: 50%;
   font-size: 22px;
   color: #555;
+  cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -123,7 +144,7 @@ body {
   padding: 12px 15px;
 }
 
-.todo__count{
+.todo__count {
   position: absolute;
   left: 2%;
 }
@@ -134,7 +155,7 @@ body {
   margin: 0 auto;
 }
 
-.todo__btn--clear{
+.todo__btn--clear {
   position: absolute;
   right: 2%;
   display: none;

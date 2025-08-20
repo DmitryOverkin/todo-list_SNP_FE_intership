@@ -85,12 +85,6 @@ function renderTodos() {
 
     todoItem.textContent = todo.text;
 
-    todoItem.addEventListener("click", () => {
-      todo.checked = !todo.checked;
-      saveTodos(todos);
-      renderTodos();
-    });
-
     let deleteBtn = document.createElement("span");
     deleteBtn.textContent = "\u00d7";
     deleteBtn.className = "delete__item";
@@ -100,6 +94,21 @@ function renderTodos() {
       renderTodos();
     });
 
+    let checkBtn = document.createElement("span");
+    checkBtn.className = "check__btn";
+
+    if(todo.checked){
+      checkBtn.classList.add("checked");
+      checkBtn.textContent = "✔";
+    }
+
+    checkBtn.addEventListener("click", () => {
+      todo.checked = !todo.checked;
+      saveTodos(todos);
+      renderTodos();
+    })
+
+    todoItem.appendChild(checkBtn);
     todoItem.appendChild(deleteBtn);
     todoList.appendChild(todoItem);
   });
