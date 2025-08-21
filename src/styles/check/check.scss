@@ -1,0 +1,19 @@
+.check {
+    &__btn {
+        position: absolute;
+        left: 2%;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1px solid #616a6b;
+        content: "";
+        cursor: pointer;
+
+        &.checked {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+    }
+}

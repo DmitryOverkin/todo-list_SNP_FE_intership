@@ -1,3 +1,15 @@
+import {
+  addChoosenClass,
+  saveTodos,
+  loadTodos,
+  showClearBtn,
+  todoCount,
+  setAllCompleted,
+  showElem,
+  hideElem,
+  getFilteredTodos
+} from "./utils";
+
 import "../styles/index.scss";
 
 const todoInput = document.querySelector(".todo__input");
@@ -12,6 +24,7 @@ const completedBtn = document.querySelector(".todo__btn--completed");
 
 let todos = loadTodos() ? loadTodos() : [];
 let currentFilter = "all";
+allBtn.classList.add("choosen");
 
 todoInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -26,7 +39,7 @@ todoInput.addEventListener("keydown", (e) => {
 toggleAllBtn.addEventListener("click", function () {
   const isAllCompleted = todos.every((todo) => todo.checked === true);
 
-  setAllCompleted(!isAllCompleted);
+  setAllCompleted(!isAllCompleted, todos);
   saveTodos(todos);
   renderTodos();
 });
@@ -39,42 +52,27 @@ clearBtn.addEventListener("click", () => {
 
 allBtn.addEventListener("click", () => {
   currentFilter = "all";
+  addChoosenClass(allBtn, activeBtn, completedBtn);
   renderTodos();
 });
 
 activeBtn.addEventListener("click", () => {
   currentFilter = "active";
+  addChoosenClass(activeBtn, allBtn, completedBtn);
   renderTodos();
 });
 
 completedBtn.addEventListener("click", () => {
   currentFilter = "completed";
+  addChoosenClass(completedBtn, allBtn, activeBtn);
   renderTodos();
 });
 
-function saveTodos(arr) {
-  let jsonTodos = JSON.stringify(arr);
-  localStorage.setItem("todos", jsonTodos);
-}
-
-function loadTodos() {
-  let loadedTodos = localStorage.getItem("todos");
-  return JSON.parse(loadedTodos);
-}
-
-function getFilteredTodos() {
-  if (currentFilter === "active") {
-    return todos.filter((todo) => todo.checked === false);
-  } else if (currentFilter === "completed") {
-    return todos.filter((todo) => todo.checked === true);
-  }
-  return todos;
-}
 
 function renderTodos() {
   todoList.innerHTML = "";
 
-  const filteredTodos = getFilteredTodos();
+  const filteredTodos = getFilteredTodos(todos, currentFilter);
 
   filteredTodos.forEach((todo, index) => {
     let todoItem = document.createElement("li");
@@ -140,37 +138,8 @@ function renderTodos() {
     hideElem(todoActions, "flex");
   }
 
-  showClearBtn();
-
-  todoCount();
-}
-
-function showClearBtn() {
-  const isShow = todos.some((todo) => todo.checked === true);
-  if (isShow) {
-    showElem(clearBtn, "block");
-  } else {
-    hideElem(clearBtn, "block");
-  }
-}
-
-function todoCount() {
-  let count = todos.filter((todo) => todo.checked !== true).length;
-  todoCounter.textContent = count;
-}
-
-function setAllCompleted(state) {
-  todos.forEach((todo) => {
-    todo.checked = state;
-  });
-}
-
-function showElem(elem, className) {
-  elem.classList.add(`${className}`);
-}
-
-function hideElem(elem, className) {
-  elem.classList.remove(`${className}`);
+  showClearBtn(clearBtn, todos);
+  todoCount(todoCounter, todos);
 }
 
 renderTodos();
