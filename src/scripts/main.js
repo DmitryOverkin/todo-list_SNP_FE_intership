@@ -7,7 +7,7 @@ import {
   setAllCompleted,
   showElem,
   hideElem,
-  getFilteredTodos
+  getFilteredTodos,
 } from "./utils";
 
 import "../styles/index.scss";
@@ -29,7 +29,7 @@ allBtn.classList.add("choosen");
 todoInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     if (e.target.value.trim() == "") return;
-    todos.push({ text: e.target.value, checked: false });
+    todos.unshift({ text: e.target.value, checked: false });
     saveTodos(todos);
     renderTodos();
     e.target.value = "";
@@ -67,7 +67,6 @@ completedBtn.addEventListener("click", () => {
   addChoosenClass(completedBtn, allBtn, activeBtn);
   renderTodos();
 });
-
 
 function renderTodos() {
   todoList.innerHTML = "";
@@ -111,18 +110,34 @@ function renderTodos() {
     todoItem.addEventListener("dblclick", (e) => {
       const input = document.createElement("input");
       input.className = "edit__todo";
+      todoItem.style.height = "50px";
 
       input.value = todo.text;
 
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          todo.text = e.target.value;
-          saveTodos(todos);
-          renderTodos();
+      function closeInput(save) {
+        if (save) {
+          const val = input.value;
+          if (val !== todo.text) {
+            todo.text = val;
+            saveTodos(todos);
+          }
         }
-      });
+
+        renderTodos();
+      }
+
+      function onKeydown(e) {
+        if (e.key === "Enter") closeInput(true);
+        if (e.key === "Escape") closeInput(false);
+      }
+
+      const clickOutsideInput = () => closeInput(false);
+
+      input.addEventListener("keydown", onKeydown);
+      input.addEventListener("blur", clickOutsideInput, { once: true });
 
       todoItem.appendChild(input);
+      input.focus();
     });
 
     todoItem.appendChild(checkBtn);

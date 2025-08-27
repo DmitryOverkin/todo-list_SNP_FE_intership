@@ -41,12 +41,15 @@
 
     &__item {
         position: relative;
-        height: 50px;
-        padding: 15px 50px;
+        min-height: 50px;
+        height: fit-content;
+        padding: 15px 70px 15px 50px;
         display: flex;
         align-items: center;
         background-color: #fffff0;
         border-top: 1px solid #616a8c;
+        text-wrap: wrap;
+        line-break: anywhere;
 
         &.checked {
             color: #616a8c;

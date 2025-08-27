@@ -9,6 +9,10 @@
         content: "";
         cursor: pointer;
 
+        &:hover {
+            border: 2px solid #788f91;
+        }
+
         &.checked {
             display: flex;
             align-items: center;
