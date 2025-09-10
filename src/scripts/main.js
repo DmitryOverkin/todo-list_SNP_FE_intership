@@ -36,7 +36,7 @@ todoInput.addEventListener("keydown", (e) => {
   }
 });
 
-toggleAllBtn.addEventListener("click", function () {
+toggleAllBtn.addEventListener("click", () => {
   const isAllCompleted = todos.every((todo) => todo.checked === true);
 
   setAllCompleted(!isAllCompleted, todos);
@@ -68,7 +68,7 @@ completedBtn.addEventListener("click", () => {
   renderTodos();
 });
 
-function renderTodos() {
+const renderTodos = () => {
   todoList.innerHTML = "";
 
   const filteredTodos = getFilteredTodos(todos, currentFilter);
@@ -114,7 +114,7 @@ function renderTodos() {
 
       input.value = todo.text;
 
-      function closeInput(save) {
+      const closeInput = (save) => {
         if (save) {
           const val = input.value;
           if (val !== todo.text) {
@@ -124,12 +124,12 @@ function renderTodos() {
         }
 
         renderTodos();
-      }
+      };
 
-      function onKeydown(e) {
+      const onKeydown = (e) => {
         if (e.key === "Enter") closeInput(true);
         if (e.key === "Escape") closeInput(false);
-      }
+      };
 
       const clickOutsideInput = () => closeInput(false);
 
@@ -155,6 +155,6 @@ function renderTodos() {
 
   showClearBtn(clearBtn, todos);
   todoCount(todoCounter, todos);
-}
+};
 
 renderTodos();
