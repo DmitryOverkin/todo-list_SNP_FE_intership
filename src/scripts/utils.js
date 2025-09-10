@@ -1,21 +1,19 @@
-export const addChoosenClass = (btn, btn2, btn3) => {
-  btn.classList.add("choosen");
-  btn2.classList.remove("choosen");
-  btn3.classList.remove("choosen");
+export const addChoosenClass = (buttons, activebutton) => {
+    buttons.forEach(btn => btn.classList.toggle("choosen", btn === activebutton))
 };
 
 export const saveTodos = (arr) => {
-  let jsonTodos = JSON.stringify(arr);
+  const jsonTodos = JSON.stringify(arr);
   localStorage.setItem("todos", jsonTodos);
 };
 
 export const loadTodos = () => {
-  let loadedTodos = localStorage.getItem("todos");
+  const loadedTodos = localStorage.getItem("todos");
   return JSON.parse(loadedTodos);
 };
 
 export const showClearBtn = (btn, arr) => {
-  const isShow = arr.some((todo) => todo.checked === true);
+  const isShow = arr.some((todo) => todo.checked);
   if (isShow) {
     showElem(btn, "block");
   } else {
@@ -24,7 +22,7 @@ export const showClearBtn = (btn, arr) => {
 };
 
 export const todoCount = (counter, arr) => {
-  let count = arr.filter((todo) => todo.checked !== true).length;
+  const count = arr.filter((todo) => !todo.checked).length;
   counter.textContent = count;
 };
 
@@ -44,9 +42,9 @@ export const hideElem = (elem, className) => {
 
 export const getFilteredTodos = (arr, filter) => {
   if (filter === "active") {
-    return arr.filter((todo) => todo.checked === false);
+    return arr.filter((todo) => !todo.checked);
   } else if (filter === "completed") {
-    return arr.filter((todo) => todo.checked === true);
+    return arr.filter((todo) => todo.checked);
   }
   return arr;
 };

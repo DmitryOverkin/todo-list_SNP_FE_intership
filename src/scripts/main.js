@@ -39,7 +39,7 @@ todoInput.addEventListener("keydown", (e) => {
 });
 
 toggleAllBtn.addEventListener("click", () => {
-  const isAllCompleted = todos.every((todo) => todo.checked === true);
+  const isAllCompleted = todos.every((todo) => todo.checked);
 
   setAllCompleted(!isAllCompleted, todos);
   saveTodos(todos);
@@ -47,26 +47,28 @@ toggleAllBtn.addEventListener("click", () => {
 });
 
 clearBtn.addEventListener("click", () => {
-  todos = todos.filter((todo) => todo.checked === false);
+  todos = todos.filter((todo) => !todo.checked);
   saveTodos(todos);
   renderTodos();
 });
 
+const filterButtons = [allBtn, activeBtn, completedBtn];
+
 allBtn.addEventListener("click", () => {
   currentFilter = "all";
-  addChoosenClass(allBtn, activeBtn, completedBtn);
+  addChoosenClass(filterButtons, allBtn);
   renderTodos();
 });
 
 activeBtn.addEventListener("click", () => {
   currentFilter = "active";
-  addChoosenClass(activeBtn, allBtn, completedBtn);
+  addChoosenClass(filterButtons, activeBtn);
   renderTodos();
 });
 
 completedBtn.addEventListener("click", () => {
   currentFilter = "completed";
-  addChoosenClass(completedBtn, allBtn, activeBtn);
+  addChoosenClass(filterButtons, completedBtn);
   renderTodos();
 });
 
@@ -76,7 +78,7 @@ const renderTodos = () => {
   const filteredTodos = getFilteredTodos(todos, currentFilter);
 
   filteredTodos.forEach((todo, index) => {
-    let todoItem = document.createElement("li");
+    const todoItem = document.createElement("li");
 
     todoItem.className = "todo__item";
 
@@ -86,7 +88,7 @@ const renderTodos = () => {
 
     todoItem.textContent = todo.text;
 
-    let deleteBtn = document.createElement("span");
+    const deleteBtn = document.createElement("span");
     deleteBtn.textContent = "\u00d7";
     deleteBtn.className = "delete__item";
     deleteBtn.addEventListener("click", () => {
@@ -95,7 +97,7 @@ const renderTodos = () => {
       renderTodos();
     });
 
-    let checkBtn = document.createElement("span");
+    const checkBtn = document.createElement("span");
     checkBtn.className = "check__btn";
 
     if (todo.checked) {
