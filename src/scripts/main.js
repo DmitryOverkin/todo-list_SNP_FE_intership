@@ -22,7 +22,9 @@ const allBtn = document.querySelector(".todo__btn--all");
 const activeBtn = document.querySelector(".todo__btn--active");
 const completedBtn = document.querySelector(".todo__btn--completed");
 
-let todos = loadTodos() ? loadTodos() : [];
+const todosFromStorage = loadTodos();
+
+let todos = Array.isArray(todosFromStorage) ? todosFromStorage : [];
 let currentFilter = "all";
 allBtn.classList.add("choosen");
 
