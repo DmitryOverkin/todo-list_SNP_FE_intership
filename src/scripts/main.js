@@ -93,7 +93,7 @@ const renderTodos = () => {
     deleteBtn.className = "delete__item";
     deleteBtn.addEventListener("click", () => {
       todos = todos.filter((t) => t !== todo);
-      saveTodos(todos)
+      saveTodos(todos);
       renderTodos();
     });
 
@@ -114,31 +114,27 @@ const renderTodos = () => {
     todoItem.addEventListener("dblclick", (e) => {
       const input = document.createElement("input");
       input.className = "edit__todo";
-      todoItem.classList.add('min-height');
+      todoItem.classList.add("min-height");
 
       input.value = todo.text;
 
       const closeInput = (save) => {
-        if (save) {
-          const val = input.value;
-          if (val !== todo.text) {
-            todo.text = val;
-            saveTodos(todos);
-          }
+        const inputValue = input.value.trim();
+
+        if (save && inputValue !== todo.text) {
+          todo.text = inputValue;
+          saveTodos(todos);
         }
 
         renderTodos();
       };
 
-      const onKeydown = (e) => {
+      input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") closeInput(true);
         if (e.key === "Escape") closeInput(false);
-      };
+      });
 
-      const clickOutsideInput = () => closeInput(false);
-
-      input.addEventListener("keydown", onKeydown);
-      input.addEventListener("blur", clickOutsideInput, { once: true });
+      input.addEventListener("blur", () => closeInput(false), { once: true });
 
       todoItem.appendChild(input);
       input.focus();
