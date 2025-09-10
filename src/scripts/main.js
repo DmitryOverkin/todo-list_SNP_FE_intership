@@ -93,7 +93,8 @@ const renderTodos = () => {
     deleteBtn.className = "delete__item";
     deleteBtn.addEventListener("click", () => {
       todos = todos.filter((t) => t !== todo);
-      renderTodos(todos);
+      saveTodos(todos)
+      renderTodos();
     });
 
     const checkBtn = document.createElement("span");
@@ -113,7 +114,7 @@ const renderTodos = () => {
     todoItem.addEventListener("dblclick", (e) => {
       const input = document.createElement("input");
       input.className = "edit__todo";
-      todoItem.style.height = "50px";
+      todoItem.classList.add('min-height');
 
       input.value = todo.text;
 
