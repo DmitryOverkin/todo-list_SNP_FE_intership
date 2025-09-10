@@ -92,9 +92,8 @@ const renderTodos = () => {
     deleteBtn.textContent = "\u00d7";
     deleteBtn.className = "delete__item";
     deleteBtn.addEventListener("click", () => {
-      todos.splice(index, 1);
-      saveTodos(todos);
-      renderTodos();
+      todos = todos.filter((t) => t !== todo);
+      renderTodos(todos);
     });
 
     const checkBtn = document.createElement("span");
