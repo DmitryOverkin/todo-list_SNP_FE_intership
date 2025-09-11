@@ -1,5 +1,7 @@
 export const addChoosenClass = (buttons, activebutton) => {
-    buttons.forEach(btn => btn.classList.toggle("choosen", btn === activebutton))
+  buttons.forEach((btn) =>
+    btn.classList.toggle("choosen", btn === activebutton)
+  );
 };
 
 export const saveTodos = (arr) => {
@@ -15,9 +17,9 @@ export const loadTodos = () => {
 export const showClearBtn = (btn, arr) => {
   const isShow = arr.some((todo) => todo.checked);
   if (isShow) {
-    showElem(btn, "block");
+    toggleVisibility(btn, "block", true);
   } else {
-    hideElem(btn, "block");
+    toggleVisibility(btn, "block", false);
   }
 };
 
@@ -32,12 +34,8 @@ export const setAllCompleted = (state, arr) => {
   });
 };
 
-export const showElem = (elem, className) => {
-  elem.classList.add(`${className}`);
-};
-
-export const hideElem = (elem, className) => {
-  elem.classList.remove(`${className}`);
+export const toggleVisibility = (elem, className, show) => {
+  elem.classList.toggle(className, show);
 };
 
 export const getFilteredTodos = (arr, filter) => {

@@ -5,9 +5,8 @@ import {
   showClearBtn,
   todoCount,
   setAllCompleted,
-  showElem,
-  hideElem,
   getFilteredTodos,
+  toggleVisibility,
 } from "./utils";
 
 import "../styles/index.scss";
@@ -146,11 +145,11 @@ const renderTodos = () => {
   });
 
   if (todos.length >= 1) {
-    showElem(toggleAllBtn, "block");
-    showElem(todoActions, "flex");
+    toggleVisibility(toggleAllBtn, "block", true);
+    toggleVisibility(todoActions, "flex", true);
   } else {
-    hideElem(toggleAllBtn, "block");
-    hideElem(todoActions, "flex");
+    toggleVisibility(toggleAllBtn, "block", false);
+    toggleVisibility(todoActions, "flex", false);
   }
 
   showClearBtn(clearBtn, todos);
