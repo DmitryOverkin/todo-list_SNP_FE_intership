@@ -1,6 +1,6 @@
-export const addChoosenClass = (buttons, activebutton) => {
+export const addChoosenClass = (buttons, activeButton) => {
   buttons.forEach((btn) =>
-    btn.classList.toggle("choosen", btn === activebutton)
+    btn.classList.toggle("choosen", btn === activeButton)
   );
 };
 
@@ -37,10 +37,7 @@ export const toggleVisibility = (elem, className, show) => {
 };
 
 export const getFilteredTodos = (arr, filter) => {
-  if (filter === "active") {
-    return arr.filter((todo) => !todo.checked);
-  } else if (filter === "completed") {
-    return arr.filter((todo) => todo.checked);
-  }
+  if (filter === "active") return arr.filter((todo) => !todo.checked);
+  if (filter === "completed") return arr.filter((todo) => todo.checked);
   return arr;
 };

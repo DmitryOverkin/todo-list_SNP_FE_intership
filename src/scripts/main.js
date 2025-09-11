@@ -29,7 +29,7 @@ allBtn.classList.add("choosen");
 
 todoInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    if (e.target.value.trim() == "") return;
+    if (e.target.value.trim() === "") return;
     todos.unshift({ text: e.target.value, checked: false });
     saveTodos(todos);
     renderTodos();
@@ -76,7 +76,7 @@ const renderTodos = () => {
 
   const filteredTodos = getFilteredTodos(todos, currentFilter);
 
-  filteredTodos.forEach((todo, index) => {
+  filteredTodos.forEach((todo) => {
     const todoItem = document.createElement("li");
 
     todoItem.className = "todo__item";
@@ -113,7 +113,7 @@ const renderTodos = () => {
     todoItem.addEventListener("dblclick", (e) => {
       const input = document.createElement("input");
       input.className = "edit__todo";
-      todoItem.classList.add("min-height");
+      todoItem.classList.add("base-height");
 
       input.value = todo.text;
 
@@ -124,7 +124,6 @@ const renderTodos = () => {
           todo.text = inputValue;
           saveTodos(todos);
         }
-
         renderTodos();
       };
 
