@@ -5,13 +5,11 @@ export const addChoosenClass = (buttons, activebutton) => {
 };
 
 export const saveTodos = (arr) => {
-  const jsonTodos = JSON.stringify(arr);
-  localStorage.setItem("todos", jsonTodos);
+  localStorage.setItem("todos", JSON.stringify(arr));
 };
 
 export const loadTodos = () => {
-  const loadedTodos = localStorage.getItem("todos");
-  return JSON.parse(loadedTodos);
+  return JSON.parse(localStorage.getItem("todos"));
 };
 
 export const showClearBtn = (btn, arr) => {
